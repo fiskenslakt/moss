@@ -1,5 +1,4 @@
 from pathlib import Path
-import os
 
 import discord
 from discord import Colour, Embed
@@ -8,7 +7,7 @@ from discord_slash.model import SlashCommandOptionType as option_type
 from discord_slash.utils.manage_commands import create_option
 import yaml
 
-config_path = Path(os.path.dirname(__file__)) / 'config.yml'
+config_path = Path(__file__).parent / 'config.yml'
 if config_path.exists():
     with open(config_path) as f:
         config = yaml.load(f, Loader=yaml.CLoader)
