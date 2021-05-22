@@ -1,4 +1,5 @@
 from pathlib import Path
+import os
 
 import discord
 from discord import Colour, Embed
@@ -8,7 +9,7 @@ from discord_slash.utils.manage_commands import create_option
 import yaml
 from yaml import CLoader
 
-config_path = Path('config.yml')
+config_path = Path(os.path.dirname(__file__)) / 'config.yml'
 if config_path.exists():
     with open(config_path) as f:
         config = yaml.load(f, Loader=CLoader)
