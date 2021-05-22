@@ -7,12 +7,11 @@ from discord_slash import SlashCommand
 from discord_slash.model import SlashCommandOptionType as option_type
 from discord_slash.utils.manage_commands import create_option
 import yaml
-from yaml import CLoader
 
 config_path = Path(os.path.dirname(__file__)) / 'config.yml'
 if config_path.exists():
     with open(config_path) as f:
-        config = yaml.load(f, Loader=CLoader)
+        config = yaml.load(f, Loader=yaml.CLoader)
 else:
     raise SystemExit('Missing config file!')
 
